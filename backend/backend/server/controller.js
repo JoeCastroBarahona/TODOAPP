@@ -9,7 +9,7 @@ const secret_key = process.env.SECRET_KEY || "prew";
 
 require('dotenv').config();
 const server = process.env.HOST;
-const user = process.env.USER;
+const user = process.env.ROOT;
 const passwd = process.env.PASSWORD;
 const dataBase = process.env.DATABASE;
 
@@ -27,7 +27,7 @@ var con = mysql.createPool({
 
 //APIs CRUD para mantenimiento de tabla pendientes
 router.get('/get_pendientes', (req, res, next) => {
-    var query = '';
+    var query = 'SELECT * FROM TODOAPP.Pendientes;';
     con.query(query, (err, result, field) => {
        if(err){
            next(err);
